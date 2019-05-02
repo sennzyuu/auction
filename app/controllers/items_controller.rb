@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.save
-    redirect_to @item
+    redirect_to @item 
 
   end
 
@@ -29,6 +29,11 @@ class ItemsController < ApplicationController
 
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to items_path
+  end
 
   private
 
